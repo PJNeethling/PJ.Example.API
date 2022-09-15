@@ -1,0 +1,7 @@
+CREATE OR ALTER PROC [dbo].[ErrorHandler]
+AS
+BEGIN
+    DECLARE @ErrorMsg NVARCHAR(2048) = ERROR_MESSAGE(), @ErrorNumber INT = ERROR_NUMBER()
+	
+	
+END

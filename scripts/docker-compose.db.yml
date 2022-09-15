@@ -1,0 +1,27 @@
+version: '3.4'
+
+networks:
+  pj-net:
+    external: true
+    name: example-core-shared
+
+services:
+  pj-example-db:
+    image: pj-example-db-sql
+    build:
+      context: .
+      dockerfile: Dockerfile.db.build
+    ports:
+      - 1414:1433
+    networks:
+      - pj-net
+
+  pj-example-db-flyway:
+    image: boxfuse/flyway
+    command: -url="jdbc:sqlserver://pj-example-db;databaseName=PJ-Example-MS" -user=sa -password=Passw0rd -connectRetries=30 -baselineOnMigrate=true migrate
+    volumes:
+      - ../db:/flyway/sql
+    depends_on:
+      - pj-example-db
+    networks:
+      - pj-net

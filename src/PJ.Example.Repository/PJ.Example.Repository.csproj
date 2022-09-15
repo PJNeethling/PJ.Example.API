@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Scrypt.NET" Version="1.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PJ.Example.Database.Abstractions\PJ.Example.Database.Abstractions.csproj" />
+    <ProjectReference Include="..\PJ.Example.Domain.Abstractions\PJ.Example.Domain.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
